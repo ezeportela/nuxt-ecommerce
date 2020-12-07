@@ -1,2 +1,2 @@
 #!/bin/bash
-(cd api && npm run dev) & (cd client && npm run dev)
+(docker-compose up) & (cd client && npm run dev)
