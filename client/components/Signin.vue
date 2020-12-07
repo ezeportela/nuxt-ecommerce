@@ -2,34 +2,34 @@
   <v-form v-model="valid">
     <v-container>
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-text-field
             filled
             v-model="firstname"
             :rules="nameRules"
-            :counter="10"
-            label="First name"
+            :counter="30"
+            label="Nombre"
             required
           ></v-text-field>
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-text-field
             filled
             v-model="lastname"
             :rules="nameRules"
-            :counter="10"
-            label="Last name"
+            :counter="30"
+            label="Apellido"
             required
           ></v-text-field>
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12">
           <v-text-field
             filled
             v-model="email"
             :rules="emailRules"
-            label="E-mail"
+            label="Correo Electrónico"
             required
           ></v-text-field>
         </v-col>
