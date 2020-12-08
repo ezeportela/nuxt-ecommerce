@@ -8,10 +8,10 @@ RUN npm i nodemon -g
 
 USER node
 
-COPY ./api/package*.json ./
+COPY ./package*.json ./app
 
 RUN npm install
 
-COPY ./api ./
+COPY . ./app
 
 CMD ["npm", "run", "dev"]
