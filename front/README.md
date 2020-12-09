@@ -17,4 +17,6 @@ $ npm run start
 $ npm run generate
 ```
 
+[button url="http://www.google.com"]
+
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

@@ -5,5 +5,8 @@
     "node": true,
     "es6": true,
     "jest": true
+  },
+  "rules": {
+    "no-restricted-syntax": 0
   }
 }

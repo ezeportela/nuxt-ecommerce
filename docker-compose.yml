@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   api:
     user: node
@@ -13,12 +14,11 @@ services:
     depends_on:
       - mongo
     environment:
+      - API_ID=100
+      - API_KEY=mHgLBlzLzLyhx8iiGnAU
+      - API_SECRET_KEY=4WdX2ArBBQJL0wfS4Urd
       - NODE_ENV=develop
-      - MONGO_HOST=localhost
-      - MONGO_USER=admin
-      - MONGO_PASSWORD=password
-      - MONGO_PORT=27017
-      - MONGO_NAME=db
+      - MONGO_URI=mongodb://localhost:27017
 
   # web:
   #   build: ./front/
@@ -37,10 +37,5 @@ services:
     image: mongo
     ports:
       - '27017:27017'
-    expose:
-      - '27017'
     volumes:
       - ~/mongo/data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password

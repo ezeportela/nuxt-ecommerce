@@ -2,15 +2,14 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const config = require('config');
 
-const generateConnectionString = () => '';
+const generateConnectionString = ({ host, port, user, password, name }) =>
+  `mongodb+srv://${user}:${password}@${host}/${name}?retryWrites=true&w=majority`;
 
 exports.connectToInstance = () => {
   mongoose.Promise = global.Promise;
   console.log(config);
-  const uri =
-    'mongodb+srv://root:root@cluster0.aqlav.mongodb.net/cdscds?retryWrites=true&w=majority';
   mongoose
-    .connect(uri, {
+    .connect(config.mongo_uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
