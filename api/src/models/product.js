@@ -15,9 +15,7 @@ const schema = new Schema({
     type: Date,
     default: Date.now,
   },
-  updatedAt: {
-    type: Date,
-  },
+  updatedAt: Date,
 });
 
 schema.pre('findOneAndUpdate', async (next) => {

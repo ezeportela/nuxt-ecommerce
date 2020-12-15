@@ -7,7 +7,11 @@ const helmet = require('helmet');
 const routes = require('./routes');
 
 const errorHandler = require('./middleware/errorHandler');
-const { connectToInstance } = require('./middleware/db');
+const { openDbConnection } = require('./middleware/db');
+
+require('./models');
+
+openDbConnection();
 
 const app = express();
 
@@ -26,7 +30,5 @@ app.use((req, res, next) => {
 
 // pass any errors to the error handler
 app.use(errorHandler);
-
-connectToInstance();
 
 module.exports = app;

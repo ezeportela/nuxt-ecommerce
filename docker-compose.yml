@@ -11,14 +11,12 @@ services:
     volumes:
       - ./api:/app
     command: 'nodemon -L ./src/bin/www'
-    depends_on:
-      - mongo
     environment:
       - API_ID=100
       - API_KEY=mHgLBlzLzLyhx8iiGnAU
       - API_SECRET_KEY=4WdX2ArBBQJL0wfS4Urd
       - NODE_ENV=develop
-      - MONGO_URI=mongodb://localhost:27017
+      - MONGO_URI=mongodb://mongodb:27017/ecommerce
 
   # web:
   #   build: ./front/
@@ -33,7 +31,7 @@ services:
   #   depends_on:
   #     - api
 
-  mongo:
+  mongodb:
     image: mongo
     ports:
       - '27017:27017'

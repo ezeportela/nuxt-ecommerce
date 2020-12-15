@@ -1,13 +1,9 @@
 const mongoose = require('mongoose');
-const logger = require('morgan');
 const config = require('config');
 
-const generateConnectionString = ({ host, port, user, password, name }) =>
-  `mongodb+srv://${user}:${password}@${host}/${name}?retryWrites=true&w=majority`;
-
-exports.connectToInstance = () => {
+exports.openDbConnection = () => {
   mongoose.Promise = global.Promise;
-  console.log(config);
+  console.log(config.mongo_uri);
   mongoose
     .connect(config.mongo_uri, {
       useNewUrlParser: true,

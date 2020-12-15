@@ -2,7 +2,7 @@ const { version } = require('../../package.json');
 
 exports.healthcheck = async (req, res) => {
   res.send({
-    online: true,
+    status: true,
     timestamp: Date.now(),
     version,
   });

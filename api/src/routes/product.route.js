@@ -1,10 +1,13 @@
 const { Router } = require('express');
-const { getProducts } = require('../controllers/product.controller');
+const {
+  getProducts,
+  createProduct,
+} = require('../controllers/product.controller');
 
 const registerRoutes = (app) => {
   const router = Router();
 
-  router.route('/products').get(getProducts);
+  router.route('/products').get(getProducts).post(createProduct);
 
   app.use('/api/v1', router);
 
