@@ -12,15 +12,15 @@ class AbstractRepository {
     return model.save();
   }
 
-  update(id, data) {
-    return this.getModel().findByIdAndUpdate(id, data, (err) => {
+  update(_id, data) {
+    return this.getModel().findOneAndUpdate({_id}, data, (err) => {
       if (err) console.log(err);
       console.log('Successful updated');
     });
   }
 
-  delete(id) {
-    return this.getModel().findByIdAndRemove(id, (err) => {
+  delete(_id) {
+    return this.getModel().findOneAndRemove({_id}, (err) => {
       if (err) console.log(err);
       console.log('Successful deletion');
     });

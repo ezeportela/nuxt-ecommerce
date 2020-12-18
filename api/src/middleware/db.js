@@ -8,6 +8,7 @@ exports.openDbConnection = () => {
     .connect(config.mongo_uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useFindAndModify: false,
     })
     .then(() => console.log('Success'))
     .catch((err) => console.log(err));
