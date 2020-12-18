@@ -24,11 +24,9 @@ class Product extends AbstractSchema {
   }
 
   registerTriggers(schema) {
-    schema.pre('save', async (next) => {
-      console.log(this);
-      const product = this;
-      product.updatedAt = new Date();
-      console.log(product);
+    schema.pre('findByIdAndUpdate', async (next) => {
+      const {_update} = this;
+      _update.updatedAt = Date.now();
       next();
     });
 
