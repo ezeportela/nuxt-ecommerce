@@ -1,12 +1,35 @@
 {
-  "extends": ["airbnb-base", "prettier"],
-  "plugins": ["prettier"],
-  "env": {
-    "node": true,
-    "es6": true,
-    "jest": true
+  "extends": ["eslint:recommended", "google"],
+  "parserOptions": {
+    "ecmaVersion": 9
   },
   "rules": {
-    "no-restricted-syntax": 0
+    "require-jsdoc": 0,
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "ObjectExpression": 1,
+        "ignoredNodes": ["ConditionalExpression"]
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
+      }
+    ]
+  },
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "globals": {
+    "expect": true,
+    "assert": true
   }
 }

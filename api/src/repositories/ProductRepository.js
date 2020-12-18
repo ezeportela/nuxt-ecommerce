@@ -1,5 +1,5 @@
-const Product = require('../models/product');
-const AbstractRepository = require('./abstract.repository');
+const Product = require('../models/Product');
+const AbstractRepository = require('./AbstractRepository');
 
 class ProductRepository extends AbstractRepository {
   getModel() {

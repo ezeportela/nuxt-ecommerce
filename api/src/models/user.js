@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const SALT_COUNT = 16;
-const { Schema, model } = mongoose;
+const {Schema, model} = mongoose;
 
 const schema = new Schema({
   email: {
@@ -31,7 +31,7 @@ schema.pre('save', async (next) => {
 });
 
 schema.pre('findOneAndUpdate', async (next) => {
-  const { model: _model, getQuery, _update } = this;
+  const {model: _model, getQuery, _update} = this;
   const docToUpdate = await _model.findOne(getQuery());
 
   if (docToUpdate.password !== _update.password) {
@@ -43,8 +43,8 @@ schema.pre('findOneAndUpdate', async (next) => {
 
 schema.methods.generateAuthToken = async () => {
   // Generate an auth token for the user
-  const { _id } = this;
-  const token = jwt.sign({ _id }, process.env.APP_SECRET_KEY);
+  const {_id} = this;
+  const token = jwt.sign({_id}, process.env.APP_SECRET_KEY);
   return token;
 };
 

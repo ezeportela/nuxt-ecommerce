@@ -1,4 +1,4 @@
-const { version } = require('../../package.json');
+const {version} = require('../../package.json');
 
 exports.healthcheck = async (req, res) => {
   res.send({
